@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  macOS launchd job to run the Naukri auto-update every day at 10:00 AM.
+
+  Install:
+    cp com.shirish.naukri-update.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.shirish.naukri-update.plist
+
+  Change the hour/minute below to pick your daily time.
+  If the Mac is asleep at that time, launchd runs the job as soon as it wakes.
+
+  Uninstall:
+    launchctl unload ~/Library/LaunchAgents/com.shirish.naukri-update.plist
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.shirish.naukri-update</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/shri/personalProjects/naukriProfile/run-daily.sh</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>09</integer>
+        <key>Minute</key>
+        <integer>30</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/shri/personalProjects/naukriProfile/logs/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/shri/personalProjects/naukriProfile/logs/launchd.err.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

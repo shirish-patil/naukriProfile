@@ -1,0 +1,7 @@
+Place your resume file in this folder (e.g. resume.pdf or resume.docx),
+then set CV_PATH in your .env file to point to it, for example:
+
+    CV_PATH=cv/resume.pdf
+
+Supported formats on Naukri: .doc, .docx, .pdf, .rtf (max 2 MB).
+You can delete this placeholder file once your resume is added.

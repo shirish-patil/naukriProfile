@@ -1,0 +1,28 @@
+{
+  "name": "naukri-auto-update",
+  "version": "1.0.0",
+  "description": "Daily Naukri.com profile auto-update via Playwright + Cucumber (BDD) using Page Object Model",
+  "type": "commonjs",
+  "scripts": {
+    "login": "node scripts/setup-session.js",
+    "test": "cucumber-js",
+    "update": "cucumber-js",
+    "update:headed": "HEADLESS=false cucumber-js",
+    "dry-run": "cucumber-js --dry-run"
+  },
+  "keywords": [
+    "playwright",
+    "cucumber",
+    "bdd",
+    "pom",
+    "naukri",
+    "automation"
+  ],
+  "author": "Shirish Patil",
+  "license": "ISC",
+  "dependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "dotenv": "^16.4.7",
+    "playwright": "^1.50.1"
+  }
+}
