@@ -114,6 +114,7 @@ The framework is built to be robust — session reuse, retry-once, multiple fall
 
 - **Session expiry.** Naukri sessions last a while but eventually expire. When that happens, a run will fail and you just re-run `npm run login` once. (Tip: run `npm run login` every few weeks proactively.)
 - **Naukri UI changes.** If they redesign the profile page, selectors in `src/pages/ProfilePage.js` may need a small update.
+- **Machine Power State (Shutdown/Sleep).** If your Mac is completely turned off (shut down) at the scheduled time (e.g. 9:30 AM), the job will **not** run. However, if your Mac is just **asleep**, `launchd` will automatically queue the run and execute it as soon as you wake the machine or log in.
 
 When a run fails, look at the latest screenshot in `screenshots/` and the tail of `logs/run.log` — the cause is almost always one of the two above.
 
