@@ -96,8 +96,17 @@ launchctl unload ~/Library/LaunchAgents/com.shirish.naukri-update.plist
 
 Daily output goes to `logs/run.log`.
 
-> Prefer cron? Add this line via `crontab -e` (runs 9:30 AM daily):
-> `30 9 * * * /Users/shri/personalProjects/naukriProfile/run-daily.sh`
+### ⚠️ Crucial Path Adjustments for Daily Scheduling
+If you clone this project, you **must** update the absolute paths in the scheduler files to match your own macOS user and directory structure:
+
+1. **In `com.shirish.naukri-update.plist`:**
+   * Replace all occurrences of `/Users/shri/personalProjects/naukriProfile/` with your own absolute project directory path (e.g., `/Users/yourusername/path/to/naukriProfile/`).
+2. **In `run-daily.sh`:**
+   * Update the `PROJECT_DIR` variable to your cloned repository path.
+   * Update the `export PATH` line to point to your local Node installation path (e.g., if you use NVM, point to your active Node version binary folder so `npm` can run in the headless launchd environment).
+
+> Prefer cron? Add this line via `crontab -e` (runs 9:30 AM daily, adjusting the path to your script):
+> `30 9 * * * /path/to/your/naukriProfile/run-daily.sh`
 
 ## About "never fails"
 
