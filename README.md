@@ -35,7 +35,7 @@ naukriProfile/
 ├── screenshots/                      # Failure screenshots
 ├── logs/                             # Daily run logs
 ├── run-daily.sh                      # Scheduler wrapper
-├── com.shirish.naukri-update.plist   # macOS daily schedule
+├── com.naukri.update.plist          # macOS daily schedule
 ├── cucumber.js
 ├── package.json
 └── .env                              # Your secrets (create from .env.example)
@@ -77,9 +77,9 @@ An HTML report is written to `reports/cucumber-report.html`.
 The included `launchd` job runs it every day at 9:30 AM.
 
 ```bash
-# Edit the time inside com.shirish.naukri-update.plist if you like (Hour/Minute).
-cp com.shirish.naukri-update.plist ~/Library/LaunchAgents/
-launchctl load ~/Library/LaunchAgents/com.shirish.naukri-update.plist
+# Edit the time inside com.naukri.update.plist if you like (Hour/Minute).
+cp com.naukri.update.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.naukri.update.plist
 ```
 
 Check it's registered:
@@ -91,7 +91,7 @@ launchctl list | grep naukri
 To stop it:
 
 ```bash
-launchctl unload ~/Library/LaunchAgents/com.shirish.naukri-update.plist
+launchctl unload ~/Library/LaunchAgents/com.naukri.update.plist
 ```
 
 Daily output goes to `logs/run.log`.
@@ -99,7 +99,7 @@ Daily output goes to `logs/run.log`.
 ### ⚠️ Crucial Path Adjustments for Daily Scheduling
 If you clone this project, you **must** update the absolute paths in the scheduler files to match your own macOS user and directory structure:
 
-1. **In `com.shirish.naukri-update.plist`:**
+1. **In `com.naukri.update.plist`:**
    * Replace all occurrences of `/Users/shri/personalProjects/naukriProfile/` with your own absolute project directory path (e.g., `/Users/yourusername/path/to/naukriProfile/`).
 2. **In `run-daily.sh`:**
    * Update the `PROJECT_DIR` variable to your cloned repository path.
